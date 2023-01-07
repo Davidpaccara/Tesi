@@ -1,0 +1,204 @@
+---
+title: '3. Il Test AB secondo un approccio Bayesiano'
+output: pdf_document
+geometry: left = 2.5cm, right = 2.5cm, top = 2.5cm, bottom = 3cm
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Il capitolo è diviso in due parti principali, la prima dedicata alla presentazione degli aspetti più importanti dell’inferenza statistica Bayesiana, come il teorema di Bayes, senza entrare nel merito del test AB; la seconda parte è incentrata proprio sul test, condotto seguendo l’approccio Bayesiano, la cui comprensione dei passaggi e dei risultati necessita della conoscenza degli aspetti generali di questa metodologia Statistica.
+
+# 3.1 Il metodo Bayesiano
+
+## 3.1.1 Note generali
+
+Quando si parla di approccio Bayesiano, si fa riferimento ad un modo di interpretare dati per comprendere un fenomeno che si sta studiando, finalità che si pone anche l’approccio frequentista  (che viene spesso contrapposto in termini negativi a quello Bayesiano) che risale al XVIII secolo. Fu infatti il reverendo Thomas Bayes, da cui deriva il nome del metodo, ad approcciare l’inferenza in questo modo. É interessante porre l’ attenzione sul fatto che pur essendo di più recente diffusione, il metodo frequentista è stato fondamentalmente l’unico applicato fino alla metà del ‘900.
+Questo è avvenuto per una molteplicità di fattori, come suggeriscono (Johnson et al. 2021):
+
+- **Complessità dei calcoli**: spesso l’implementazione dei metodi Bayesiani richiede calcoli complessi che sono stati resi possibili solo dagli anni ’90 del XX secolo, rendendo quindi improcedibile l’applicazione pratica per oltre due secoli;
+
+- **Scarsa visibilità**: l’approccio frequentista è maggiormente usato in quanto è tipicamente l’ unico insegnato nelle scuole e università, storicamente parlando;
+
+- **il ruolo della Soggettività**:  come verrà spiegato, il metodo in questione si caratterizza per la presenza della “distribuzione a priori”, che in un certo senso racchiude un’esperienza passata e un giudizio di partenza sul fenomeno che si sta studiando; ebbene per lungo tempo questo ruolo di rilievo ad una componente soggettiva non è stata valutata di buon grado dal mondo della Statistica.
+
+
+## 3.1.2 Il teorema di Bayes
+
+L'intero approccio Bayesiano può essere racchiuso formalmente nel teorema da cui prende il nome;
+
+$Distribuzione\  a\  posteriori=\frac{distribuzione\  a\  priori\cdot verosimiglianza}{costante\  di\  normalizzazione}$
+
+Per comprendere meglio di quali elementi sia costituito il teorema, può essere utile riscriverlo in termini matematici;
+
+$P(B\mid A)=\frac{P(A\ \cap\ B)}{P(A)}$                 (1.1)
+
+o, in altri termini:
+
+$P(B\mid A)=\frac{P(B) \cdot L(B\mid A)}{P(A)}$         (1.2)
+
+
+Si può notare come la probabilità che si vuole calcolare è espressa come probabilità condizionata $P(B\mid A)$, che sta ad indicare quanto è probabile che un evento $B$ si verifichi alla luce del verificarsi dell'evento $A$.
+Aggiungiamo  al concetto di probabilità condizionata quello di probabilità congiunta; è la probabilità che due eventi, $A$ e $B$ si verifichino entrambe. Matematicamente rappresentata come $P(A\cap B)$.
+Probabilità condizionata e probabilità congiunta sono tra loro in relazione, come evidenziato dalla formula 1.1.
+Esplicitando rispetto a $P(A\cap B)$, la si può calcolare in due modi;
+
+
+$P(A\cap B)$= $P(B\mid A) \cdot P(A)$                   (1.3)
+
+oppure;
+
+$P(A\cap B)$= $P(A\mid B) \cdot P(B)$                   (1.4)
+
+A questo punto, il numeratore di 1.1 può essere riscritto utilizzando 1.4, ottenendo;
+
+
+$P(B\mid A)=\frac{P(B) \cdot P(A\mid B)}{P(A)}$.        (1.5)
+
+Si noti come 1.5 differisca da 1.2 di un solo elemento, $P(A\mid B)$ al posto di $L(B\mid A)$.
+
+$L(B\mid A)=P(A\mid B)$
+
+## 3.1.3 La funzione di Verosimiglianza
+
+$L(\theta\mid X)$ sta ad indicare non una funzione di probabilità, bensì la cosidetta funzione di verosimiglianza, traduzione di *Likelihood function*,  ed è una funzione del parametro $\theta$ piuttosto che della variabile casuale $X$.
+Essa rappresenta la probabilità che la variabile $X$ assuma un certo valore, dati dei particolari valori del parametro $\theta$. È importante ricordare che i valori della funzione di verosimiglianza, per tutti i valori del parametro $\theta$, se sommati non sono pari a 1 quindi non rappresenta un modello probabilistico, dove invece  $\sum_{x}p(x)=1$. I diversi valori osservati permettono di confrontare la compatibilità dei dati osservati $X=x$, con diversi valori di $\theta$.
+
+
+## 3.1.4 La distribuzione a Priori
+
+Passando all'altra componente del numeratore di 1.2, $P(B)$, rappresenta la **Distribuzione a priori** di probabilità dsel parametro di interesse; in sostanza è il punto di partenza dell'analisi Bayesiana che permette di assegnare ai possibili valori del parametro $\theta$ le corrispondenti probabilità, prima di aver raccolto i dati. Per un'analisi sulla distribuzione a priori e l'importanza della sua scelta, si rimanda al Cap.4.  
+
+
+## 3.1.5 La costante di normalizzazione 
+
+Al denominatore del teorema di Bayes troviamo $P(A)$, detta costante di normalizzazione. Il suo ruolo è quello di "normalizzare" le probabilità a posteriori affinchè la loro somma sia pari a 1. Ad esempio;
+
+$f(\theta=x_{1}\mid y=y_{1})+f(\theta=x_{2}\mid y=y_{})+f(\theta=x_{3}\mid y=y_{1})=1$
+
+Spesso non è necessario calcolare questa costante in quanto esiste una proporzionalità tra la distribuzione a posteriori e il prodotto tra quella a priori e la funzione di verosimiglianza:
+
+$Distribuzione\  a\  posteriori\propto distribuzione\  a\  priori\cdot verosimiglianza$;
+
+in termini matematici;
+
+$P(B\mid A)\propto P(B) \cdot L(B\mid A)$.
+
+Questa proprietà è molto significativa in quanto indica che tutte le informazioni di cui abbiamo bisogno nella costruzione della probabilità a posteriori sono contenute nel numeratore del teorema di Bayes.
+
+Riassumendo il teorema di Bayes è costituito da 3 elementi
+
+- **La distribuzione a priori**;
+- **la funzione di Verosimiglianza**;
+- **la costante di normalizzazione**.
+
+**( promemoria-come si sposta a pagina nuova il contenuto di seguito? si cambia argomento quindi vorrei andare a pagina nuova)**
+
+## 3.1.6 il metodo di lavoro Bayesiano
+
+Come si è già avuto occasione di dire, l'intero approccio si basa ed è caratterizzato dalla formalizzazione di un modello probabilistico a priori, dal quale poi, tramite l'apporto informativo dei dati raccolti, si andrà a costruire la probabilità a posteriori; questo è in estrema sintesi la metodica dell'inferenza Bayesiana.
+Lo scopo di questo approccio è quello di studiare il comportamento di un parametro di interesse $\pi$, del quale se ne ha un'idea più o meno vaga ( si vedano i diversi tipi di distribuzioni a priori nel cap.4), e che diventà più affidabile, precisa quando è confrontata, anche più volte in successione, con dei dati. 
+Avendo già rimandato ad altra sede l'analisi del primo passo da compiere, procediamo con quello successivo del "workflow" Bayesiano; **la raccolta delle informazioni**.
+
+In base al caso specifico sul quale si sta lavorando, sono utilizzati diversi modelli probabilistici per fare inferenza.
+Tra i più importanti ci sono:
+
+- La funzione Binomiale;
+- la funzione Poisson;
+- la funzione Normale.
+
+In generale, considerando un parametro $\pi$, esso viene inserito all'interno di un modello di probabilità condizionata per la variabile Y
+
+$f(y\mid\pi)=P(Y=y\mid\pi)$.
+
+
+Focalizziamo l'attenzione sulla prima, la **funzione Binomiale**.
+Data una variabile casuale Y che rappresenta il numero di successi in un numero prefissato di ripetizioni $n$, e, rispettate le seguenti condizioni:
+
+- l'indipendenza tra ogni esperimento;
+-la probabilità di successo per ogni ripetizione è $\pi$;
+
+Il rapporto tra $Y$ e $\pi$ può essere espresso dalla funzione Binomiale;
+
+$Y\mid\pi \sim Bin(n,\pi)$.
+
+La funzione di probabilità della binomiale è;
+
+$f(y\mid\pi)=\binom{n}{y}\pi^y(1-\pi)^{n-y}$
+
+dove $\binom{n}{y}=\frac{n!}{y!(n-y)!}$ rappresenta il coefficiente binomiale.
+
+Tenendo a mente $f(y\mid\pi)$, segueno alcuni esempi di binomiali dove $n$ è fissato a 50 mentre il parametro $\pi$, che potrebbe rappresentare il tasso di conversione, varia in ogni grafico. Naturalmente minore è $\pi$, minore sarà $y$.
+
+```{r echo=FALSE}
+
+par(mfrow=c(3,3))
+library(BSDA)
+success <- 0:50
+plot(success,dbinom(success,size=50,prob=.1),
+     type='h',
+   
+     ylab='prob. cond.',
+     xlab ='y',
+     lwd=3)
+
+success <- 0:50
+plot(success,dbinom(success,size=50,prob=.2),
+     type='h',
+     
+     ylab='prob. cond.',
+     xlab ='y',
+     lwd=3)
+success <- 0:50
+plot(success,dbinom(success,size=50,prob=.3),
+     type='h',
+  
+     ylab='prob. cond.',
+     xlab ='y',
+     lwd=3)
+success <- 0:50
+plot(success,dbinom(success,size=50,prob=.4),
+     type='h',
+     ylab='prob cond.',
+     xlab ='y',
+     lwd=3)
+
+success <- 0:50
+plot(success,dbinom(success,size=50,prob=.5),
+     type='h',
+     ylab='prob. cond.',
+     xlab ='y',
+     lwd=3)
+success <- 0:50
+plot(success,dbinom(success,size=50,prob=.6),
+     type='h',
+ 
+     ylab='prob. cond.',
+     xlab ='y',
+     lwd=3)
+success <- 0:50
+plot(success,dbinom(success,size=50,prob=.7),
+     type='h',
+    
+     ylab='prob. cond.',
+     xlab ='y',
+     lwd=3)
+success <- 0:50
+plot(success,dbinom(success,size=50,prob=.8),
+     type='h',
+    
+     ylab='prob. cond.',
+     xlab ='y',
+     lwd=3)
+success <- 0:50
+plot(success,dbinom(success,size=50,prob=.9),
+     type='h',
+     
+     ylab='prob. cond.',
+     xlab ='y',
+     lwd=3)
+
+
+```
