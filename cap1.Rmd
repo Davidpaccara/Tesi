@@ -1,0 +1,127 @@
+---
+title: "Il test AB"
+output: pdf_document
+geometry: left = 2.5cm, right = 2.5cm, top = 2.5cm, bottom = 3cm
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1.1 Cos'è il test AB
+
+
+Il test A/B è uno strumento di ricerca, utilizzato per apportare dei miglioramenti a ciò su cui si sta effettuando il test. La dicitura in senso stretto indica semplicemente un confronto fatto tra due cose diverse tra loro, appunto tra A e B, ma quando si parla di questo strumento solitamente ci si sta riferendo a un procedimento che sebbene parta da questo presupposto elementare, deve essere applicato in un contesto reale e quindi deve essere meglio definito affinché sia effettivamente utile per chi lo conduce.
+Il campo di applicazione più grande per questo tipo di test è offerto sicuramente dal Marketing, dove si cerca di studiare il mercato per capire cosa offrirà un vantaggio competitivo, il cosiddetto “edge”, rispetto ai propri concorrenti, finalità che oggi viene raggiunta in gran parte tramite l’interazione con i propri clienti, acquisiti o potenziali che siano, attraverso le piattaforme digitali come i siti web. Quello che permette un test A/B, idealmente e nel medio termine, è creare una formula che più risponda alle preferenze e i gusti degli utenti, formula che è la somma di tutte le scelte fatte in merito a tutte le possibili variabili del sito che potrebbero influenzare il comportamento di chi vi entra in contatto. Il test confronta il “successo” riscontrato dall’adozione di una soluzione piuttosto che di un’ altra o meglio, della nuova soluzione a fronte di quella utilizzata fino a quel momento basandosi su degli indicatori definiti come *KPI( key performance indicators)*, che mostrano la performance dell’una variante A e dell’altra B.
+
+## 1.2 Osservazioni partendo da due citazioni
+
+A sostegno dell’importanza di Test di questo tipo si sono pronunciate anche persone come Jeff Bezos e Mark Zuckerberg:
+
+“Our success at Amazon is a function of how many experiments we do per year , per month, per week, per day”.
+-*Jeff Bezos*
+
+
+“The key to their success is the testing  framework; at any given point in time, there isn’t one version of Facebook running, there are probably 10000”.
+-*Mark Zuckerberg*
+
+
+Oltre a far capire il ruolo che ricoprono i test in realtà grandi come Amazon e Facebook, queste citazioni colgono due aspetti del test A/B che sono fondamentali per svolgerli in modo corretto. Dalla  prima frase si capisce come di test non se ne facciano pochi o sporadicamente, ma frequentemente e ripetutamente, anche più di uno al giorno.
+Ovviamente se venissero fatti più test in un giorno, non necessariamente dovrebbero interessare la stessa variabile, bensì due, tre o quante se ne vorrebbero. Va posta l’attenzione però sul fatto che un test unico, spesso non porta dei benefici enormi, ma se inserito in un contesto nel quale ne vengono fatti molteplici, possono portare a dei cambiamenti, banalmente di “fatturato”, non indifferenti.
+La seconda citazione può far riflettere su due aspetti; il primo sulla natura del test, il secondo in merito alla procedura.
+È possibile fare un confronto non solamente tra due varianti A e B ma tra quante se ne vogliono. Per questo vengono anche utilizzati frequentemente i test *A/B/n*, dove n è il numero di varianti che si stanno confrontando. Il secondo aspetto che traspare è la “contemporaneità”, cioè che il test deve essere svolto in modo da esporre agli utenti le diverse varianti nello stesso momento, non commettendo l’errore di studiare prima il rendimento di A e poi quello di B, in quanto ciò potrebbe potenzialmente falsare i risultati che si sono raccolti, finendo per attribuire al cambiamento effettuato quando in realtà esso è dipeso da altri fattori, come una campagna di marketing o dal flusso di traffico stagionale che varia in base alle occasioni(ad esempio il “Black Friday” o i periodi festivi).
+Accorgimenti come questo, insieme ad altri poi descritti ,sono cruciali per effettuare un test valido e significativo.
+
+
+##1.3 I KPI
+
+
+Passiamo a vedere nello specifico cosa si può andare a variare (ricordando che è proprio questo termine quello chiave per comprendere la natura del processo), prendendo di riferimento un qualsiasi sito web aziendale.
+In sostanza si può modificare qualsiasi elemento che è ragionevole ritenere possa influenzare il comportamento dei visitatori della pagina. Prima di passare alla loro specificazione che ha natura esemplificativa, non esaustiva, bisogna subito rendere chiara la differenza tra elementi da modificare e KPI. Questi ultimi, già nominati, sono le misurazioni, o “metrics”, sulle quali ci si concentra per vedere se una variante ha riscosso il successo sperato, a sua volta delineato in base ad un obiettivo posto da chi effettua il test o dal management. I maggiori KPI sono:
+
+-Click-through rate; la percentuale di utenti che hanno deciso di interagire con la pagina sulla più ampia parte di individui confrontati con lo stimolo(es. passaggio da e-mail a sito tramite link)
+
+-Tempo di permanenza sul sito; serve a comprendere quanto influiscono i cambiamenti apportati sul tempo passato a navigare sul sito 
+
+-Valore medio carrello; una media di quanto spende l’utente, spesso fatta scartando i valori estremi.
+-numero acquisti non perfezionati; anche chiamato tasso di abbandono del carrello
+
+-Bounce rate; il tasso di utenti che abbandonano il sito visitato dopo aver interagito solo con una pagina, quindi senza aver fatto altri click (questo KPI è difficile da interpretare correttamente quindi va utilizzato con cautela.
+
+Questi indicatori KPI vengono calcolati sulla base dei dati raccolti da ciascuna variante, dati che differiranno dal momento che diversi sono gli elementi che la vanno a costituire, e sono quelli con cui l’utente entra in contatto e la cui interazione con essi vanno, all’ aumentare dei dati raccolti, ad “informare” i KPI, che serviranno a dichiarare quale delle versioni è migliore.
+
+## 1.4 Elementi modificati
+
+
+Gli elementi che possono essere modificati possono essere distinti per categorie:
+-**Contenuti testuali**;
+
+1)Titoli
+2)stile di comunicazione, informativo o promozionale
+3)lingua e registro
+
+-**Elementi di design**;
+
+1)layout
+2)pulsanti(colore, forma)
+3)caratteri
+4)immagini
+
+-**Elementi che rendano l’ esperienza migliore**;
+
+1)struttura del sito; come va strutturata ad esempio la successione di passaggi che portano all’ acquisto
+
+2)Possibilità di confronto prodotti e consulenza all’ acquisto
+
+3)Utilizzo dei link interni al sito per mostrare articolo simili o suggeriti
+
+
+## 1.5 Esempi
+
+Seguono alcuni esempi che mostrano alcuni possibili cambiamenti tra due varianti:
+
+
+Due possibili visualizzazioni del menu di navigazione in un’impresa tedesca di elettronica;
+
+
+
+Confronto tra “landing pages”, le pagine mostrate ai visitatori quando cliccano su un link, in questo caso in merito ai voli cancellati di una compagnia aerea;
+
+
+Display di proposta di sottoscrizione alla newsletter, differenziata in base alla natura dei visitatori, nuovi clienti, o clienti che hanno già effettuato un acquisto, entrambe dei quali non sono però iscritti alla newsletter;
+
+
+## 1.5 Aspetti da tenere in considerazione 
+
+
+Come già accennato, fare un test A/B comporta l’osservanza di alcuni principi che servono da linee guida se si vogliono avere dei risultati che possano beneficiare all’organizzazione.
+In primo luogo è importante capire quanti dati bisogna raccogliere o, in altre parole, a quanti soggetti presentare l’una o l’altra versione predisposta; quindi si tratta di calcolare la **dimensione del campione** di studio necessaria per poter inferire le conclusioni tratte dal campione alla più generale popolazione di riferimento. Questo aspetto verrà analizzato più in dettaglio nella parte dedicata alla procedura di tipo “frequentista” del test.
+Importante è anche quella che viene chiamata “**allocazione dei visitatori**”; Entrambe le variazioni devono essere messe nella condizione di “vincere”, venendo quindi presentate con la stessa probabilità agli utenti. Indicativamente si raccomanda una probabilità di assegnazione di ciascuna variante pari al 50%. Le varianti devono essere studiate in modo tale da poter attribuire il successo dell’una piuttosto che dell’altra alle differenze presenti, altrimenti si rischia di inquinare il risultato. Per chiarire questo punto basti pensare al caso in cui la variante A venga presentata solo a Uomini, la variante B solo alle donne; la differenza di performance è dovuta alle effettive differenze tra le varianti o alla diverse preferenze tra uomini e donne?
+
+
+## 1.5.1 Segmentazione del mercato
+
+
+Ancora, e in collegamento con quanto detto sopra, per rendere più realistica l’ impostazione del test, è importante fare quella che nel marketing viene definita “**segmentazione**” del mercato; infatti ricorrendo semplicemente al concetto di utente medio, si traggono poi delle conclusioni che non si adattano al meglio alle reali condizioni nel quale opera il sito e l’organizzazione in generale.
+Una buona segmentazione degli utenti può essere ad esempio fatta nel modo seguente:
+-uomini/donne
+-utenti da dispositivi mobile/da pc
+-nuovi clienti/clienti che hanno già acquistato
+-clienti che hanno acquistato una sola volta/clienti fedeli
+
+Ovviamente ogni segmento può essere a sua volta suddiviso per specificare meglio diverse caratteristiche, funzionali al test. Quello che permette l’operazione in questione e di comprendere meglio per ciascuna categoria quali siano i “driver” che portano ad avere maggiori conversioni, che migliorano i KPI presi di riferimento nello studio.
+
+
+## 1.6 Nota conclusiva
+Infine, va tenuto presente che nel fare il test non bisogna concentrarsi esclusivamente sul “*cosa*”, ad esempio il posizionamento di un banner nel sito, ma anche sul “*perché*” viene fatto quel cambiamento, in altre parole l’aspetto psicologico che supporta le scelte fatte. Le potenzialità del test A/B vengono sfruttate maggiormente se non si ragiona solo in termini di variante migliore e variante peggiore, ma se i dati sanno effettivamente informare le ipotesi e gli obiettivi alla base del framework dei test per poter prendere la decisione migliore.
+
+
+
+
+
+
+
+
+
+
